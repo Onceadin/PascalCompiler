@@ -1,12 +1,3 @@
 antlr4 MyParser.g4 
 javac MyParser*.java
-grun MyParser program -gui
-<Появится запрос ввода.>
-PROGRAM Example;
-VAR a, b, c:INTEGER;
-BEGIN
-  a := 1;
-  b := a * 5;
-  c := a + b * 3;
-END.
-<Нажать Ctrl+D для линукс или Ctrl+Z для винды>
+grun MyParser program -gui Program.pas
