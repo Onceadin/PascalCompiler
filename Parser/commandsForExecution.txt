@@ -1,0 +1,3 @@
+antlr4 MyParser.g4 
+javac MyParser*.java
+grun MyParser program -gui Program.pas
