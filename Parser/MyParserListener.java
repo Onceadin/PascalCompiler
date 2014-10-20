@@ -108,6 +108,16 @@ public interface MyParserListener extends ParseTreeListener {
 	 */
 	void exitTypeIdentifier(@NotNull MyParserParser.TypeIdentifierContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link MyParserParser#input}.
+	 * @param ctx the parse tree
+	 */
+	void enterInput(@NotNull MyParserParser.InputContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MyParserParser#input}.
+	 * @param ctx the parse tree
+	 */
+	void exitInput(@NotNull MyParserParser.InputContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link MyParserParser#unsignedInteger}.
 	 * @param ctx the parse tree
 	 */
@@ -177,6 +187,16 @@ public interface MyParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitProgDef(@NotNull MyParserParser.ProgDefContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link MyParserParser#output}.
+	 * @param ctx the parse tree
+	 */
+	void enterOutput(@NotNull MyParserParser.OutputContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link MyParserParser#output}.
+	 * @param ctx the parse tree
+	 */
+	void exitOutput(@NotNull MyParserParser.OutputContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link MyParserParser#declarations}.
 	 * @param ctx the parse tree

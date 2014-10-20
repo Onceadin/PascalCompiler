@@ -136,6 +136,18 @@ public class MyParserBaseListener implements MyParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterInput(@NotNull MyParserParser.InputContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInput(@NotNull MyParserParser.InputContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterUnsignedInteger(@NotNull MyParserParser.UnsignedIntegerContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -215,6 +227,18 @@ public class MyParserBaseListener implements MyParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitProgDef(@NotNull MyParserParser.ProgDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOutput(@NotNull MyParserParser.OutputContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOutput(@NotNull MyParserParser.OutputContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

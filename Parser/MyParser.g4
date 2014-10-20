@@ -8,6 +8,10 @@ grammar MyParser;
 
 PROGRAM  :  'PROGRAM' ;
 BEGIN    :  'BEGIN'   ;
+WRITE    :  'WRITE'   ;
+WRITELN  :  'WRITELN' ;
+READ     :  'READ'    ;
+READLN   :  'READLN'  ;
 END      :  'END'     ;
 VAR      :  'VAR'     ;
 PLUS     :  '+'       ;
@@ -43,7 +47,20 @@ block           :  BEGIN statementList END     ;
 statementList   : (statement SEMI)+            ;
 
 statement 
-    : ID (ASSIGN expression)?;
+    : ID ASSIGN expression
+    | input LPAR expression RPAR
+    | output LPAR expression RPAR
+    ;
+
+output
+    : WRITE
+    | WRITELN
+    ;
+
+input
+    : READ
+    | READLN
+    ;
 
 expression
     : simpleExpression;
