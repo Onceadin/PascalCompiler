@@ -1,5 +1,6 @@
-ParserToTree/.metadata/
 *.class
+*bin/
+*.metadata/
 
 # Compiled Object files
 *.slo
