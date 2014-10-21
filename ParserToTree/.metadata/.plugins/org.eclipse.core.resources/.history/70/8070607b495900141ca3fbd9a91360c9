@@ -1,0 +1,42 @@
+package parser2Tree;
+
+import java.util.Vector;
+
+public class MyTree {
+	private class Node{
+		public String item;
+		Vector<Node> leafs = new Vector<Node>();
+		
+		public Node(String it){
+			String temp = new String("");
+			if(it.charAt(0) == '('){
+				int i = 1;
+				int start = i;
+				while(it.charAt(i)!=' '){
+					i++;
+				}
+				temp.concat(it.substring(start, i));
+				it = it.substring(i);
+				item = temp;
+			}
+			for (int i=0; i<it.length(); i++){
+				
+			}
+		}
+		
+		void addNewLeaf(String s){
+			Node leaf = new Node(s);
+			leafs.add(leaf);
+		}
+	}
+	
+	private Node root;
+	public MyTree(String toParse) {
+		root = new Node(toParse);
+	}
+
+	public void Output() {
+		// TODO Auto-generated method stub
+		
+	}
+}

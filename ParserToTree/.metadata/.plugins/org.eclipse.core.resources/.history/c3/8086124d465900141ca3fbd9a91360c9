@@ -1,0 +1,12 @@
+package parser2Tree;
+
+public class MyTree {
+	public MyTree(String toParse) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public void Output() {
+		// TODO Auto-generated method stub
+		
+	}
+}
