@@ -23,7 +23,7 @@ public class MainClass {
 		{
 			tr = new MyTree(args[0]);
 		}
-		//tr.Output();
+		tr.Output();
 	}
 
 }
