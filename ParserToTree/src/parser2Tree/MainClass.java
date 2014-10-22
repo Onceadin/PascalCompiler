@@ -15,6 +15,8 @@ public class MainClass {
 	
 	public static void main(String[] args) {
 		MyTree tr;
+		//при отсутствии аргументов командной строки, подставлять строку выше
+		//подстановка из командной строки не проверена
 		if (args.length == 0)
 		{
 			tr = new MyTree(defaultOutput);
