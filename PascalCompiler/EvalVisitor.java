@@ -1,69 +1,115 @@
-import java.util.HashMap;
-import java.util.Map;
+
+
 
 public class EvalVisitor extends LabeledExprBaseVisitor<Integer> {
-	/* "memory" for our calculator; variable/value pairs go here */
-	Map<String, Integer> memory = new HashMap<String, Integer>();
 
-	/* ID '=' expr NEWLINE */
 	@Override
-	public Integer visitAssign(LabeledExprParser.AssignContext ctx) {
-		String id = ctx.ID().getText(); // id is left-hand side of '='
-		int value = visit(ctx.expr());
-		// compute value of expression on right
-		memory.put(id, value);
-		// store it in our memory
-		return value;
+	public Integer visitExpression(LabeledExprParser.ExpressionContext ctx) {
+		// TODO Auto-generated method stub
+		return super.visitExpression(ctx);
 	}
 
-	/** expr NEWLINE */
 	@Override
-	public Integer visitPrintExpr(LabeledExprParser.PrintExprContext ctx) {
-		Integer value = visit(ctx.expr()); // evaluate the expr child
-		System.out.println(value);
-		// print the result
-		return 0;
-		// return dummy value
+	public Integer visitUnsignedNumber(LabeledExprParser.UnsignedNumberContext ctx) {
+		// TODO Auto-generated method stub
+		System.out.println("BOOOOOOOOOBSas");
+		return super.visitUnsignedNumber(ctx);
 	}
 
-	/** INT */
 	@Override
-	public Integer visitInt(LabeledExprParser.IntContext ctx) {
-		return Integer.valueOf(ctx.INT().getText());
+	public Integer visitVarDefs(LabeledExprParser.VarDefsContext ctx) {
+		// TODO Auto-generated method stub
+		return super.visitVarDefs(ctx);
 	}
 
-	/** ID */
 	@Override
-	public Integer visitId(LabeledExprParser.IdContext ctx) {
-		String id = ctx.ID().getText();
-		if (memory.containsKey(id))
-			return memory.get(id);
-		return 0;
+	public Integer visitBlock(LabeledExprParser.BlockContext ctx) {
+		// TODO Auto-generated method stub
+		return super.visitBlock(ctx);
 	}
 
-	/** expr op=('*'|'/') expr */
 	@Override
-	public Integer visitMulDiv(LabeledExprParser.MulDivContext ctx) {
-		int left = visit(ctx.expr(0)); // get value of left subexpression
-		int right = visit(ctx.expr(1)); // get value of right subexpression
-		if (ctx.op.getType() == LabeledExprParser.MUL)
-			return left * right;
-		return left / right; // must be DIV
+	public Integer visitFactor(LabeledExprParser.FactorContext ctx) {
+		// TODO Auto-generated method stub
+		return super.visitFactor(ctx);
 	}
 
-	/** expr op=('+'|'-') expr */
 	@Override
-	public Integer visitAddSub(LabeledExprParser.AddSubContext ctx) {
-		int left = visit(ctx.expr(0)); // get value of left subexpression
-		int right = visit(ctx.expr(1)); // get value of right subexpression
-		if (ctx.op.getType() == LabeledExprParser.ADD)
-			return left + right;
-		return left - right; // must be SUB
+	public Integer visitIdList(LabeledExprParser.IdListContext ctx) {
+		// TODO Auto-generated method stub
+		return super.visitIdList(ctx);
 	}
 
-	/** '(' expr ')' */
 	@Override
-	public Integer visitParens(LabeledExprParser.ParensContext ctx) {
-		return visit(ctx.expr()); // return child expr's value
+	public Integer visitVarDef(LabeledExprParser.VarDefContext ctx) {
+		// TODO Auto-generated method stub
+		return super.visitVarDef(ctx);
 	}
+
+	@Override
+	public Integer visitStatementList(LabeledExprParser.StatementListContext ctx) {
+		// TODO Auto-generated method stub
+		return super.visitStatementList(ctx);
+	}
+
+	@Override
+	public Integer visitStatement(LabeledExprParser.StatementContext ctx) {
+		// TODO Auto-generated method stub
+		return super.visitStatement(ctx);
+	}
+
+	@Override
+	public Integer visitTypeIdentifier(LabeledExprParser.TypeIdentifierContext ctx) {
+		// TODO Auto-generated method stub
+		return super.visitTypeIdentifier(ctx);
+	}
+
+	@Override
+	public Integer visitUnsignedInteger(LabeledExprParser.UnsignedIntegerContext ctx) {
+		// TODO Auto-generated method stub
+		return super.visitUnsignedInteger(ctx);
+	}
+
+	@Override
+	public Integer visitUnsignedConstant(LabeledExprParser.UnsignedConstantContext ctx) {
+		// TODO Auto-generated method stub
+		return super.visitUnsignedConstant(ctx);
+	}
+
+	@Override
+	public Integer visitTerm(LabeledExprParser.TermContext ctx) {
+		// TODO Auto-generated method stub
+		return super.visitTerm(ctx);
+	}
+
+	@Override
+	public Integer visitProgram(LabeledExprParser.ProgramContext ctx) {
+		// TODO Auto-generated method stub
+		return super.visitProgram(ctx);
+	}
+
+	@Override
+	public Integer visitVarDefList(LabeledExprParser.VarDefListContext ctx) {
+		// TODO Auto-generated method stub
+		return super.visitVarDefList(ctx);
+	}
+
+	@Override
+	public Integer visitSimpleExpression(LabeledExprParser.SimpleExpressionContext ctx) {
+		// TODO Auto-generated method stub
+		return super.visitSimpleExpression(ctx);
+	}
+
+	@Override
+	public Integer visitProgDef(LabeledExprParser.ProgDefContext ctx) {
+		// TODO Auto-generated method stub
+		return super.visitProgDef(ctx);
+	}
+
+	@Override
+	public Integer visitDeclarations(LabeledExprParser.DeclarationsContext ctx) {
+		// TODO Auto-generated method stub
+		return super.visitDeclarations(ctx);
+	}
+	
 }

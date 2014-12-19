@@ -1,3 +1,4 @@
+// Generated from LabeledExpr.g4 by ANTLR 4.4
 import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -10,65 +11,111 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface LabeledExprVisitor<T> extends ParseTreeVisitor<T> {
 	/**
-	 * Visit a parse tree produced by the {@code id}
-	 * labeled alternative in {@link LabeledExprParser#expr}.
+	 * Visit a parse tree produced by {@link LabeledExprParser#expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitId(@NotNull LabeledExprParser.IdContext ctx);
+	T visitExpression(@NotNull LabeledExprParser.ExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code assign}
-	 * labeled alternative in {@link LabeledExprParser#stat}.
+	 * Visit a parse tree produced by {@link LabeledExprParser#unsignedNumber}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAssign(@NotNull LabeledExprParser.AssignContext ctx);
+	T visitUnsignedNumber(@NotNull LabeledExprParser.UnsignedNumberContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link LabeledExprParser#prog}.
+	 * Visit a parse tree produced by {@link LabeledExprParser#varDefs}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitProg(@NotNull LabeledExprParser.ProgContext ctx);
+	T visitVarDefs(@NotNull LabeledExprParser.VarDefsContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code printExpr}
-	 * labeled alternative in {@link LabeledExprParser#stat}.
+	 * Visit a parse tree produced by {@link LabeledExprParser#block}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitPrintExpr(@NotNull LabeledExprParser.PrintExprContext ctx);
+	T visitBlock(@NotNull LabeledExprParser.BlockContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code blank}
-	 * labeled alternative in {@link LabeledExprParser#stat}.
+	 * Visit a parse tree produced by {@link LabeledExprParser#factor}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBlank(@NotNull LabeledExprParser.BlankContext ctx);
+	T visitFactor(@NotNull LabeledExprParser.FactorContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code int}
-	 * labeled alternative in {@link LabeledExprParser#expr}.
+	 * Visit a parse tree produced by {@link LabeledExprParser#idList}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitInt(@NotNull LabeledExprParser.IntContext ctx);
+	T visitIdList(@NotNull LabeledExprParser.IdListContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code AddSub}
-	 * labeled alternative in {@link LabeledExprParser#expr}.
+	 * Visit a parse tree produced by {@link LabeledExprParser#varDef}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAddSub(@NotNull LabeledExprParser.AddSubContext ctx);
+	T visitVarDef(@NotNull LabeledExprParser.VarDefContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code parens}
-	 * labeled alternative in {@link LabeledExprParser#expr}.
+	 * Visit a parse tree produced by {@link LabeledExprParser#statementList}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitParens(@NotNull LabeledExprParser.ParensContext ctx);
+	T visitStatementList(@NotNull LabeledExprParser.StatementListContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code MulDiv}
-	 * labeled alternative in {@link LabeledExprParser#expr}.
+	 * Visit a parse tree produced by {@link LabeledExprParser#statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMulDiv(@NotNull LabeledExprParser.MulDivContext ctx);
+	T visitStatement(@NotNull LabeledExprParser.StatementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LabeledExprParser#typeIdentifier}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTypeIdentifier(@NotNull LabeledExprParser.TypeIdentifierContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LabeledExprParser#unsignedInteger}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitUnsignedInteger(@NotNull LabeledExprParser.UnsignedIntegerContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LabeledExprParser#unsignedConstant}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitUnsignedConstant(@NotNull LabeledExprParser.UnsignedConstantContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LabeledExprParser#term}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTerm(@NotNull LabeledExprParser.TermContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LabeledExprParser#program}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProgram(@NotNull LabeledExprParser.ProgramContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LabeledExprParser#varDefList}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVarDefList(@NotNull LabeledExprParser.VarDefListContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LabeledExprParser#simpleExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSimpleExpression(@NotNull LabeledExprParser.SimpleExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LabeledExprParser#progDef}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitProgDef(@NotNull LabeledExprParser.ProgDefContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link LabeledExprParser#declarations}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDeclarations(@NotNull LabeledExprParser.DeclarationsContext ctx);
 }
