@@ -1,6 +1,7 @@
 *.class
 *bin/
 *.metadata/
+*.recommenders/
 
 # Compiled Object files
 *.slo

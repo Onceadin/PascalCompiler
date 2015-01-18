@@ -13,10 +13,10 @@ public class KALKULATORSUKA {
 		if (inputFile != null)
 			is = new FileInputStream(inputFile);
 		ANTLRInputStream input = new ANTLRInputStream(is);
-		LabeledExprLexer lexer = new LabeledExprLexer(input);
+		PascalGrammarLexer lexer = new PascalGrammarLexer(input);
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
-		LabeledExprParser parser = new LabeledExprParser(tokens);
-		ParseTree tree = parser.prog(); // parse
+		PascalGrammarParser parser = new PascalGrammarParser(tokens);
+		ParseTree tree = parser.program(); // parse
 		//System.out.println(tree.toStringTree(parser)); // print tree as text
 		EvalVisitor eval = new EvalVisitor();
 		eval.visit(tree);
