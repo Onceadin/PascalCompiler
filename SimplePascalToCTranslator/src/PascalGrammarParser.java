@@ -69,12 +69,9 @@ public class PascalGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_program; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).enterProgram(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).exitProgram(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PascalGrammarVisitor ) return ((PascalGrammarVisitor<? extends T>)visitor).visitProgram(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -118,12 +115,9 @@ public class PascalGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_declarations; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).enterDeclarations(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).exitDeclarations(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PascalGrammarVisitor ) return ((PascalGrammarVisitor<? extends T>)visitor).visitDeclarations(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -182,12 +176,9 @@ public class PascalGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_progDef; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).enterProgDef(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).exitProgDef(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PascalGrammarVisitor ) return ((PascalGrammarVisitor<? extends T>)visitor).visitProgDef(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -223,12 +214,9 @@ public class PascalGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_varDefs; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).enterVarDefs(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).exitVarDefs(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PascalGrammarVisitor ) return ((PascalGrammarVisitor<? extends T>)visitor).visitVarDefs(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -269,12 +257,9 @@ public class PascalGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_varDefList; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).enterVarDefList(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).exitVarDefList(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PascalGrammarVisitor ) return ((PascalGrammarVisitor<? extends T>)visitor).visitVarDefList(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -325,12 +310,9 @@ public class PascalGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_varDef; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).enterVarDef(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).exitVarDef(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PascalGrammarVisitor ) return ((PascalGrammarVisitor<? extends T>)visitor).visitVarDef(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -370,12 +352,9 @@ public class PascalGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_idList; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).enterIdList(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).exitIdList(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PascalGrammarVisitor ) return ((PascalGrammarVisitor<? extends T>)visitor).visitIdList(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -421,12 +400,9 @@ public class PascalGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_typeIdentifier; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).enterTypeIdentifier(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).exitTypeIdentifier(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PascalGrammarVisitor ) return ((PascalGrammarVisitor<? extends T>)visitor).visitTypeIdentifier(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -461,12 +437,9 @@ public class PascalGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_block; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).enterBlock(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).exitBlock(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PascalGrammarVisitor ) return ((PascalGrammarVisitor<? extends T>)visitor).visitBlock(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -508,12 +481,9 @@ public class PascalGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_statementList; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).enterStatementList(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).exitStatementList(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PascalGrammarVisitor ) return ((PascalGrammarVisitor<? extends T>)visitor).visitStatementList(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -562,12 +532,9 @@ public class PascalGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_statement; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).enterStatement(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).exitStatement(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PascalGrammarVisitor ) return ((PascalGrammarVisitor<? extends T>)visitor).visitStatement(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -602,12 +569,9 @@ public class PascalGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_expression; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).enterExpression(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).exitExpression(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PascalGrammarVisitor ) return ((PascalGrammarVisitor<? extends T>)visitor).visitExpression(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -651,12 +615,9 @@ public class PascalGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_simpleExpression; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).enterSimpleExpression(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).exitSimpleExpression(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PascalGrammarVisitor ) return ((PascalGrammarVisitor<? extends T>)visitor).visitSimpleExpression(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -720,12 +681,9 @@ public class PascalGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_term; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).enterTerm(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).exitTerm(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PascalGrammarVisitor ) return ((PascalGrammarVisitor<? extends T>)visitor).visitTerm(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -784,12 +742,9 @@ public class PascalGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_factor; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).enterFactor(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).exitFactor(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PascalGrammarVisitor ) return ((PascalGrammarVisitor<? extends T>)visitor).visitFactor(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -843,12 +798,9 @@ public class PascalGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_unsignedConstant; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).enterUnsignedConstant(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).exitUnsignedConstant(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PascalGrammarVisitor ) return ((PascalGrammarVisitor<? extends T>)visitor).visitUnsignedConstant(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -881,12 +833,9 @@ public class PascalGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_unsignedNumber; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).enterUnsignedNumber(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).exitUnsignedNumber(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PascalGrammarVisitor ) return ((PascalGrammarVisitor<? extends T>)visitor).visitUnsignedNumber(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
@@ -917,12 +866,9 @@ public class PascalGrammarParser extends Parser {
 		}
 		@Override public int getRuleIndex() { return RULE_unsignedInteger; }
 		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).enterUnsignedInteger(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof PascalGrammarListener ) ((PascalGrammarListener)listener).exitUnsignedInteger(this);
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof PascalGrammarVisitor ) return ((PascalGrammarVisitor<? extends T>)visitor).visitUnsignedInteger(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 
