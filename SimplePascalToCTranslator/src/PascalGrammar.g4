@@ -41,7 +41,24 @@ block           :  BEGIN statementList END     ;
 statementList   : (statement SEMI)+            ;
 
 statement 
-    : ID ASSIGN expression    ;
+    : assignment
+    | input
+    | output
+    ;
+
+assignment: ID ASSIGN expression;
+
+output
+    : WRITE LPAR expression RPAR
+    | WRITELN LPAR expression RPAR
+    | WRITE ID
+    | WRITELN ID
+    ;
+
+input
+    : READ ID
+    | READLN ID
+    ;
 
 expression
     : simpleExpression;
@@ -72,3 +89,4 @@ NUM_INT
 ID  :  ('a'..'z'|'A'..'Z')('a'..'z'|'A'..'Z'|'0'..'9'|'_')*  ;
 
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
+

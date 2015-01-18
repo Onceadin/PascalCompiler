@@ -29,6 +29,12 @@ public interface PascalGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitProgDef(@NotNull PascalGrammarParser.ProgDefContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PascalGrammarParser#assignment}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssignment(@NotNull PascalGrammarParser.AssignmentContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link PascalGrammarParser#simpleExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -64,6 +70,18 @@ public interface PascalGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitDeclarations(@NotNull PascalGrammarParser.DeclarationsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PascalGrammarParser#output}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOutput(@NotNull PascalGrammarParser.OutputContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link PascalGrammarParser#input}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInput(@NotNull PascalGrammarParser.InputContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link PascalGrammarParser#statementList}.
 	 * @param ctx the parse tree

@@ -20,6 +20,7 @@ public class EvalVisitor extends PascalGrammarBaseVisitor<Integer> {
 	@Override
 	public Integer visitProgram(@NotNull PascalGrammarParser.ProgramContext ctx) {
 		isMainFunction = true;
+		System.out.println("#include <stdio.h>");
 		return visitChildren(ctx); 
 	}
 	
@@ -34,10 +35,36 @@ public class EvalVisitor extends PascalGrammarBaseVisitor<Integer> {
 		System.out.println("}");
 		return ret;
 	}
-
-	@Override
-	public Integer visitStatement(@NotNull PascalGrammarParser.StatementContext ctx){
+	
+	@Override 
+	public Integer visitAssignment(@NotNull PascalGrammarParser.AssignmentContext ctx) {
 		System.out.println(ctx.ID().getText()+"="+ctx.expression().getText()+";");
+		return visitChildren(ctx); 
+	}	
+	
+	//TODO: проверка типов выводимого значения
+	@Override 
+	public Integer visitOutput(@NotNull PascalGrammarParser.OutputContext ctx) {
+		String expr = "";
+		if(ctx.expression() == null){
+			expr = ctx.ID().getText();
+		}
+		else{
+			expr = ctx.expression().getText();
+		}
+				
+		System.out.print("printf(\"%i");
+		
+		if(ctx.getChild(0).getText().startsWith("WRITELN"))
+			System.out.print("\\n\"");
+		
+		System.out.println(", "+expr+")");
+		
+		return visitChildren(ctx); 
+	}
+	
+	@Override
+	public Integer visitStatement(@NotNull PascalGrammarParser.StatementContext ctx){		
 		return visitChildren(ctx);
 	}	
 }
