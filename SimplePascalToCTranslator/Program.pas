@@ -5,7 +5,10 @@ BEGIN
   b := a;
   b := a * 5;
   c := (a + b) * 3;
-  WHILE a + b DO  WRITELN b;
+  WHILE a + b DO 
+	BEGIN 
+		WRITELN b;
+	END;
   WRITELN b;
   WRITE a;
 END.

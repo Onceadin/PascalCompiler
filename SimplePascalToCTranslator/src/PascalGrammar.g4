@@ -47,6 +47,7 @@ statement
     | input
     | output
     | while_statement
+    | block
     ;
 
 while_statement: 
