@@ -3,7 +3,7 @@ import org.antlr.v4.runtime.tree.*;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
-public class KALKULATORSUKA {
+public class TranslatorProject {
 	
 	public static void main(String[] args) throws Exception {
 		String inputFile = null;
