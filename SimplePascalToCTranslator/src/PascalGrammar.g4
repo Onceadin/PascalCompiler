@@ -20,6 +20,8 @@ ASSIGN   :  ':='      ;
 INTEGER  :  'INTEGER' ;
 LPAR     :  '('       ;
 RPAR     :  ')'       ;
+WHILE	 :  'WHILE'	  ;
+DO		 :  'DO'      ;
 
 program
     : declarations
@@ -44,7 +46,11 @@ statement
     : assignment
     | input
     | output
+    | while_statement
     ;
+
+while_statement: 
+	WHILE expression DO statement;
 
 assignment: ID ASSIGN expression;
 

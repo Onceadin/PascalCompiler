@@ -125,6 +125,12 @@ public interface PascalGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTerm(@NotNull PascalGrammarParser.TermContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PascalGrammarParser#while_statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWhile_statement(@NotNull PascalGrammarParser.While_statementContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link PascalGrammarParser#factor}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
