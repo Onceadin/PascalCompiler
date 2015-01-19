@@ -75,9 +75,9 @@ public class EvalVisitor extends PascalGrammarBaseVisitor<Integer> {
 			@NotNull PascalGrammarParser.While_statementContext ctx) {
 		System.out.print("while (" + ctx.expression().getText() + ')');
 		System.out.println(" {");
-		visitStatement(ctx.statement());
+		Integer ret = visitChildren(ctx);
 		System.out.println("};");
-		return visitChildren(ctx);
+		return ret;
 	}
 
 }
