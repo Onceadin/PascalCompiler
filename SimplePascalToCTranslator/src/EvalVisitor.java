@@ -32,7 +32,7 @@ public class EvalVisitor extends PascalGrammarBaseVisitor<Integer> {
 		}
 		System.out.println("\n{");
 		Integer ret = visitChildren(ctx);
-		System.out.println("}");
+		System.out.println("};");
 		return ret;
 	}
 
@@ -79,5 +79,18 @@ public class EvalVisitor extends PascalGrammarBaseVisitor<Integer> {
 		System.out.println("};");
 		return ret;
 	}
+
+	@Override
+	public Integer visitInput(@NotNull PascalGrammarParser.InputContext ctx) {
+		System.out.print("scanf(\"%i");
+
+		if (ctx.getChild(0).getText().startsWith("READLN"))
+			System.out.print("\\n\"");
+
+		System.out.println(", " + ctx.ID().getText() + ");");
+
+		return visitChildren(ctx);
+	}
+
 
 }
