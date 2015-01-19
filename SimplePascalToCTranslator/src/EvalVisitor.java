@@ -85,10 +85,17 @@ public class EvalVisitor extends PascalGrammarBaseVisitor<Integer> {
 		if (ctx.getChild(0).getText().startsWith("READLN"))
 			System.out.print("\\n\"");
 
-		System.out.println(", " + ctx.ID().getText() + ");");
+		System.out.println(", " + ctx.getText() + ");");
 
 		return visitChildren(ctx);
 	}
 
+	@Override
+	public Integer visitIf_statement(
+			@NotNull PascalGrammarParser.If_statementContext ctx) {
+		System.out.print("if (" + ctx.expression().getText() + ")");
+		Integer ret = visitChildren(ctx);
+		return ret;
+	}
 
 }

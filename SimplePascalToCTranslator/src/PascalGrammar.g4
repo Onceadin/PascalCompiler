@@ -22,6 +22,7 @@ LPAR     :  '('       ;
 RPAR     :  ')'       ;
 WHILE	 :  'WHILE'	  ;
 DO		 :  'DO'      ;
+IF       :  'IF'	  ;
 
 program
     : declarations
@@ -42,16 +43,19 @@ block           :  BEGIN statementList END     ;
 
 statementList   : (statement SEMI)+            ;
 
-statement 
-    : assignment
+statement : 
+	assignment
     | input
     | output
     | while_statement
     | block
+    | if_statement
     ;
 
 while_statement: 
 	WHILE expression DO statement;
+	
+if_statement : IF expression statement;
 
 assignment: ID ASSIGN expression;
 

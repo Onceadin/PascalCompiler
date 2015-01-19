@@ -113,6 +113,12 @@ public interface PascalGrammarVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTypeIdentifier(@NotNull PascalGrammarParser.TypeIdentifierContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link PascalGrammarParser#if_statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIf_statement(@NotNull PascalGrammarParser.If_statementContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link PascalGrammarParser#block}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

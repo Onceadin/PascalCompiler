@@ -1,7 +1,6 @@
 PROGRAM Example;
 VAR a, b, c:INTEGER;
 BEGIN
-  READ a;
   b := a;
   b := a * 5;
   c := (a + b) * 3;
@@ -10,5 +9,10 @@ BEGIN
 		WRITELN b;
 	END;
   WRITELN b;
+  IF a + b 
+	BEGIN 
+		WRITELN b;
+		READLN (a);
+	END;
   WRITE a;
 END.
