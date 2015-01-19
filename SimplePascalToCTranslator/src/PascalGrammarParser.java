@@ -510,7 +510,7 @@ public class PascalGrammarParser extends Parser {
 				setState(96); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << WRITE) | (1L << WRITELN) | (1L << READ) | (1L << READLN) | (1L << WHILE) | (1L << ID))) != 0) );
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << BEGIN) | (1L << WRITE) | (1L << WRITELN) | (1L << READ) | (1L << READLN) | (1L << WHILE) | (1L << ID))) != 0) );
 			}
 		}
 		catch (RecognitionException re) {
@@ -537,6 +537,9 @@ public class PascalGrammarParser extends Parser {
 		public OutputContext output() {
 			return getRuleContext(OutputContext.class,0);
 		}
+		public BlockContext block() {
+			return getRuleContext(BlockContext.class,0);
+		}
 		public StatementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
@@ -552,7 +555,7 @@ public class PascalGrammarParser extends Parser {
 		StatementContext _localctx = new StatementContext(_ctx, getState());
 		enterRule(_localctx, 20, RULE_statement);
 		try {
-			setState(102);
+			setState(103);
 			switch (_input.LA(1)) {
 			case ID:
 				enterOuterAlt(_localctx, 1);
@@ -578,6 +581,12 @@ public class PascalGrammarParser extends Parser {
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(101); while_statement();
+				}
+				break;
+			case BEGIN:
+				enterOuterAlt(_localctx, 5);
+				{
+				setState(102); block();
 				}
 				break;
 			default:
@@ -621,10 +630,10 @@ public class PascalGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(104); match(WHILE);
-			setState(105); expression();
-			setState(106); match(DO);
-			setState(107); statement();
+			setState(105); match(WHILE);
+			setState(106); expression();
+			setState(107); match(DO);
+			setState(108); statement();
 			}
 		}
 		catch (RecognitionException re) {
@@ -661,9 +670,9 @@ public class PascalGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(109); match(ID);
-			setState(110); match(ASSIGN);
-			setState(111); expression();
+			setState(110); match(ID);
+			setState(111); match(ASSIGN);
+			setState(112); expression();
 			}
 		}
 		catch (RecognitionException re) {
@@ -701,38 +710,38 @@ public class PascalGrammarParser extends Parser {
 		OutputContext _localctx = new OutputContext(_ctx, getState());
 		enterRule(_localctx, 26, RULE_output);
 		try {
-			setState(127);
+			setState(128);
 			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(113); match(WRITE);
-				setState(114); match(LPAR);
-				setState(115); expression();
-				setState(116); match(RPAR);
+				setState(114); match(WRITE);
+				setState(115); match(LPAR);
+				setState(116); expression();
+				setState(117); match(RPAR);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(118); match(WRITELN);
-				setState(119); match(LPAR);
-				setState(120); expression();
-				setState(121); match(RPAR);
+				setState(119); match(WRITELN);
+				setState(120); match(LPAR);
+				setState(121); expression();
+				setState(122); match(RPAR);
 				}
 				break;
 			case 3:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(123); match(WRITE);
-				setState(124); match(ID);
+				setState(124); match(WRITE);
+				setState(125); match(ID);
 				}
 				break;
 			case 4:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(125); match(WRITELN);
-				setState(126); match(ID);
+				setState(126); match(WRITELN);
+				setState(127); match(ID);
 				}
 				break;
 			}
@@ -767,20 +776,20 @@ public class PascalGrammarParser extends Parser {
 		InputContext _localctx = new InputContext(_ctx, getState());
 		enterRule(_localctx, 28, RULE_input);
 		try {
-			setState(133);
+			setState(134);
 			switch (_input.LA(1)) {
 			case READ:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(129); match(READ);
-				setState(130); match(ID);
+				setState(130); match(READ);
+				setState(131); match(ID);
 				}
 				break;
 			case READLN:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(131); match(READLN);
-				setState(132); match(ID);
+				setState(132); match(READLN);
+				setState(133); match(ID);
 				}
 				break;
 			default:
@@ -819,7 +828,7 @@ public class PascalGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(135); simpleExpression();
+			setState(136); simpleExpression();
 			}
 		}
 		catch (RecognitionException re) {
@@ -866,23 +875,23 @@ public class PascalGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(137); term();
-			setState(142);
+			setState(138); term();
+			setState(143);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==PLUS || _la==MINUS) {
 				{
 				{
-				setState(138);
+				setState(139);
 				_la = _input.LA(1);
 				if ( !(_la==PLUS || _la==MINUS) ) {
 				_errHandler.recoverInline(this);
 				}
 				consume();
-				setState(139); term();
+				setState(140); term();
 				}
 				}
-				setState(144);
+				setState(145);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -932,23 +941,23 @@ public class PascalGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(145); factor();
-			setState(150);
+			setState(146); factor();
+			setState(151);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==MULT || _la==DIV) {
 				{
 				{
-				setState(146);
+				setState(147);
 				_la = _input.LA(1);
 				if ( !(_la==MULT || _la==DIV) ) {
 				_errHandler.recoverInline(this);
 				}
 				consume();
-				setState(147); factor();
+				setState(148); factor();
 				}
 				}
-				setState(152);
+				setState(153);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
@@ -990,26 +999,26 @@ public class PascalGrammarParser extends Parser {
 		FactorContext _localctx = new FactorContext(_ctx, getState());
 		enterRule(_localctx, 36, RULE_factor);
 		try {
-			setState(159);
+			setState(160);
 			switch (_input.LA(1)) {
 			case LPAR:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(153); match(LPAR);
-				setState(154); expression();
-				setState(155); match(RPAR);
+				setState(154); match(LPAR);
+				setState(155); expression();
+				setState(156); match(RPAR);
 				}
 				break;
 			case ID:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(157); match(ID);
+				setState(158); match(ID);
 				}
 				break;
 			case NUM_INT:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(158); unsignedConstant();
+				setState(159); unsignedConstant();
 				}
 				break;
 			default:
@@ -1048,7 +1057,7 @@ public class PascalGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(161); unsignedNumber();
+			setState(162); unsignedNumber();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1083,7 +1092,7 @@ public class PascalGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(163); unsignedInteger();
+			setState(164); unsignedInteger();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1116,7 +1125,7 @@ public class PascalGrammarParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(165); match(NUM_INT);
+			setState(166); match(NUM_INT);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1131,25 +1140,25 @@ public class PascalGrammarParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\33\u00aa\4\2\t\2"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3\33\u00ab\4\2\t\2"+
 		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
 		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\4\26\t\26\4\27\t\27\3\2\3\2\3\2\3\2\3\3"+
 		"\6\3\64\n\3\r\3\16\3\65\3\3\7\39\n\3\f\3\16\3<\13\3\3\4\3\4\3\4\3\4\3"+
 		"\5\3\5\3\5\3\6\3\6\3\6\6\6H\n\6\r\6\16\6I\3\7\3\7\3\7\3\7\3\b\3\b\3\b"+
 		"\7\bS\n\b\f\b\16\bV\13\b\3\t\3\t\3\n\3\n\3\n\3\n\3\13\3\13\3\13\6\13a"+
-		"\n\13\r\13\16\13b\3\f\3\f\3\f\3\f\5\fi\n\f\3\r\3\r\3\r\3\r\3\r\3\16\3"+
-		"\16\3\16\3\16\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3"+
-		"\17\3\17\3\17\5\17\u0082\n\17\3\20\3\20\3\20\3\20\5\20\u0088\n\20\3\21"+
-		"\3\21\3\22\3\22\3\22\7\22\u008f\n\22\f\22\16\22\u0092\13\22\3\23\3\23"+
-		"\3\23\7\23\u0097\n\23\f\23\16\23\u009a\13\23\3\24\3\24\3\24\3\24\3\24"+
-		"\3\24\5\24\u00a2\n\24\3\25\3\25\3\26\3\26\3\27\3\27\3\27\2\2\30\2\4\6"+
-		"\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,\2\4\3\2\13\f\3\2\r\16\u00a3"+
+		"\n\13\r\13\16\13b\3\f\3\f\3\f\3\f\3\f\5\fj\n\f\3\r\3\r\3\r\3\r\3\r\3\16"+
+		"\3\16\3\16\3\16\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17\3\17"+
+		"\3\17\3\17\3\17\5\17\u0083\n\17\3\20\3\20\3\20\3\20\5\20\u0089\n\20\3"+
+		"\21\3\21\3\22\3\22\3\22\7\22\u0090\n\22\f\22\16\22\u0093\13\22\3\23\3"+
+		"\23\3\23\7\23\u0098\n\23\f\23\16\23\u009b\13\23\3\24\3\24\3\24\3\24\3"+
+		"\24\3\24\5\24\u00a3\n\24\3\25\3\25\3\26\3\26\3\27\3\27\3\27\2\2\30\2\4"+
+		"\6\b\n\f\16\20\22\24\26\30\32\34\36 \"$&(*,\2\4\3\2\13\f\3\2\r\16\u00a5"+
 		"\2.\3\2\2\2\4\63\3\2\2\2\6=\3\2\2\2\bA\3\2\2\2\nG\3\2\2\2\fK\3\2\2\2\16"+
-		"O\3\2\2\2\20W\3\2\2\2\22Y\3\2\2\2\24`\3\2\2\2\26h\3\2\2\2\30j\3\2\2\2"+
-		"\32o\3\2\2\2\34\u0081\3\2\2\2\36\u0087\3\2\2\2 \u0089\3\2\2\2\"\u008b"+
-		"\3\2\2\2$\u0093\3\2\2\2&\u00a1\3\2\2\2(\u00a3\3\2\2\2*\u00a5\3\2\2\2,"+
-		"\u00a7\3\2\2\2./\5\4\3\2/\60\5\22\n\2\60\61\7\17\2\2\61\3\3\2\2\2\62\64"+
+		"O\3\2\2\2\20W\3\2\2\2\22Y\3\2\2\2\24`\3\2\2\2\26i\3\2\2\2\30k\3\2\2\2"+
+		"\32p\3\2\2\2\34\u0082\3\2\2\2\36\u0088\3\2\2\2 \u008a\3\2\2\2\"\u008c"+
+		"\3\2\2\2$\u0094\3\2\2\2&\u00a2\3\2\2\2(\u00a4\3\2\2\2*\u00a6\3\2\2\2,"+
+		"\u00a8\3\2\2\2./\5\4\3\2/\60\5\22\n\2\60\61\7\17\2\2\61\3\3\2\2\2\62\64"+
 		"\5\6\4\2\63\62\3\2\2\2\64\65\3\2\2\2\65\63\3\2\2\2\65\66\3\2\2\2\66:\3"+
 		"\2\2\2\679\5\b\5\28\67\3\2\2\29<\3\2\2\2:8\3\2\2\2:;\3\2\2\2;\5\3\2\2"+
 		"\2<:\3\2\2\2=>\7\3\2\2>?\7\32\2\2?@\7\20\2\2@\7\3\2\2\2AB\7\n\2\2BC\5"+
@@ -1158,26 +1167,26 @@ public class PascalGrammarParser extends Parser {
 		"\2\2\2OT\7\32\2\2PQ\7\22\2\2QS\7\32\2\2RP\3\2\2\2SV\3\2\2\2TR\3\2\2\2"+
 		"TU\3\2\2\2U\17\3\2\2\2VT\3\2\2\2WX\7\24\2\2X\21\3\2\2\2YZ\7\4\2\2Z[\5"+
 		"\24\13\2[\\\7\t\2\2\\\23\3\2\2\2]^\5\26\f\2^_\7\20\2\2_a\3\2\2\2`]\3\2"+
-		"\2\2ab\3\2\2\2b`\3\2\2\2bc\3\2\2\2c\25\3\2\2\2di\5\32\16\2ei\5\36\20\2"+
-		"fi\5\34\17\2gi\5\30\r\2hd\3\2\2\2he\3\2\2\2hf\3\2\2\2hg\3\2\2\2i\27\3"+
-		"\2\2\2jk\7\27\2\2kl\5 \21\2lm\7\30\2\2mn\5\26\f\2n\31\3\2\2\2op\7\32\2"+
-		"\2pq\7\23\2\2qr\5 \21\2r\33\3\2\2\2st\7\5\2\2tu\7\25\2\2uv\5 \21\2vw\7"+
-		"\26\2\2w\u0082\3\2\2\2xy\7\6\2\2yz\7\25\2\2z{\5 \21\2{|\7\26\2\2|\u0082"+
-		"\3\2\2\2}~\7\5\2\2~\u0082\7\32\2\2\177\u0080\7\6\2\2\u0080\u0082\7\32"+
-		"\2\2\u0081s\3\2\2\2\u0081x\3\2\2\2\u0081}\3\2\2\2\u0081\177\3\2\2\2\u0082"+
-		"\35\3\2\2\2\u0083\u0084\7\7\2\2\u0084\u0088\7\32\2\2\u0085\u0086\7\b\2"+
-		"\2\u0086\u0088\7\32\2\2\u0087\u0083\3\2\2\2\u0087\u0085\3\2\2\2\u0088"+
-		"\37\3\2\2\2\u0089\u008a\5\"\22\2\u008a!\3\2\2\2\u008b\u0090\5$\23\2\u008c"+
-		"\u008d\t\2\2\2\u008d\u008f\5$\23\2\u008e\u008c\3\2\2\2\u008f\u0092\3\2"+
-		"\2\2\u0090\u008e\3\2\2\2\u0090\u0091\3\2\2\2\u0091#\3\2\2\2\u0092\u0090"+
-		"\3\2\2\2\u0093\u0098\5&\24\2\u0094\u0095\t\3\2\2\u0095\u0097\5&\24\2\u0096"+
-		"\u0094\3\2\2\2\u0097\u009a\3\2\2\2\u0098\u0096\3\2\2\2\u0098\u0099\3\2"+
-		"\2\2\u0099%\3\2\2\2\u009a\u0098\3\2\2\2\u009b\u009c\7\25\2\2\u009c\u009d"+
-		"\5 \21\2\u009d\u009e\7\26\2\2\u009e\u00a2\3\2\2\2\u009f\u00a2\7\32\2\2"+
-		"\u00a0\u00a2\5(\25\2\u00a1\u009b\3\2\2\2\u00a1\u009f\3\2\2\2\u00a1\u00a0"+
-		"\3\2\2\2\u00a2\'\3\2\2\2\u00a3\u00a4\5*\26\2\u00a4)\3\2\2\2\u00a5\u00a6"+
-		"\5,\27\2\u00a6+\3\2\2\2\u00a7\u00a8\7\31\2\2\u00a8-\3\2\2\2\r\65:ITbh"+
-		"\u0081\u0087\u0090\u0098\u00a1";
+		"\2\2ab\3\2\2\2b`\3\2\2\2bc\3\2\2\2c\25\3\2\2\2dj\5\32\16\2ej\5\36\20\2"+
+		"fj\5\34\17\2gj\5\30\r\2hj\5\22\n\2id\3\2\2\2ie\3\2\2\2if\3\2\2\2ig\3\2"+
+		"\2\2ih\3\2\2\2j\27\3\2\2\2kl\7\27\2\2lm\5 \21\2mn\7\30\2\2no\5\26\f\2"+
+		"o\31\3\2\2\2pq\7\32\2\2qr\7\23\2\2rs\5 \21\2s\33\3\2\2\2tu\7\5\2\2uv\7"+
+		"\25\2\2vw\5 \21\2wx\7\26\2\2x\u0083\3\2\2\2yz\7\6\2\2z{\7\25\2\2{|\5 "+
+		"\21\2|}\7\26\2\2}\u0083\3\2\2\2~\177\7\5\2\2\177\u0083\7\32\2\2\u0080"+
+		"\u0081\7\6\2\2\u0081\u0083\7\32\2\2\u0082t\3\2\2\2\u0082y\3\2\2\2\u0082"+
+		"~\3\2\2\2\u0082\u0080\3\2\2\2\u0083\35\3\2\2\2\u0084\u0085\7\7\2\2\u0085"+
+		"\u0089\7\32\2\2\u0086\u0087\7\b\2\2\u0087\u0089\7\32\2\2\u0088\u0084\3"+
+		"\2\2\2\u0088\u0086\3\2\2\2\u0089\37\3\2\2\2\u008a\u008b\5\"\22\2\u008b"+
+		"!\3\2\2\2\u008c\u0091\5$\23\2\u008d\u008e\t\2\2\2\u008e\u0090\5$\23\2"+
+		"\u008f\u008d\3\2\2\2\u0090\u0093\3\2\2\2\u0091\u008f\3\2\2\2\u0091\u0092"+
+		"\3\2\2\2\u0092#\3\2\2\2\u0093\u0091\3\2\2\2\u0094\u0099\5&\24\2\u0095"+
+		"\u0096\t\3\2\2\u0096\u0098\5&\24\2\u0097\u0095\3\2\2\2\u0098\u009b\3\2"+
+		"\2\2\u0099\u0097\3\2\2\2\u0099\u009a\3\2\2\2\u009a%\3\2\2\2\u009b\u0099"+
+		"\3\2\2\2\u009c\u009d\7\25\2\2\u009d\u009e\5 \21\2\u009e\u009f\7\26\2\2"+
+		"\u009f\u00a3\3\2\2\2\u00a0\u00a3\7\32\2\2\u00a1\u00a3\5(\25\2\u00a2\u009c"+
+		"\3\2\2\2\u00a2\u00a0\3\2\2\2\u00a2\u00a1\3\2\2\2\u00a3\'\3\2\2\2\u00a4"+
+		"\u00a5\5*\26\2\u00a5)\3\2\2\2\u00a6\u00a7\5,\27\2\u00a7+\3\2\2\2\u00a8"+
+		"\u00a9\7\31\2\2\u00a9-\3\2\2\2\r\65:ITbi\u0082\u0088\u0091\u0099\u00a2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

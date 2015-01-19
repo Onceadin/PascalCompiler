@@ -1,13 +1,18 @@
 PROGRAM Example;
 VAR a, b, c:INTEGER;
 BEGIN
-  READ (a);
+  READ a;
   b := a;
   b := a * 5;
   c := (a + b) * 3;
   WHILE a + b DO 
+<<<<<<< HEAD
 	BEGIN
 		 WRITELN b;
+=======
+	BEGIN 
+		WRITELN b;
+>>>>>>> 1143cfd8fbcbeb1951f33c95842ae8058d95ded3
 	END;
   WRITELN b;
   WRITE a;

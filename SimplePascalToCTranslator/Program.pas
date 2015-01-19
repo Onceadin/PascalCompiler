@@ -6,8 +6,8 @@ BEGIN
   b := a * 5;
   c := (a + b) * 3;
   WHILE a + b DO 
-	BEGIN
-		 WRITELN b;
+	BEGIN 
+		WRITELN b;
 	END;
   WRITELN b;
   WRITE a;

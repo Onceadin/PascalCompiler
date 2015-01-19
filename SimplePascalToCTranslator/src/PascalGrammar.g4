@@ -47,6 +47,7 @@ statement
     | input
     | output
     | while_statement
+    | block
     ;
 
 while_statement: 
@@ -62,8 +63,8 @@ output
     ;
 
 input
-    : READ ID
-    | READLN ID
+    : READ LPAR ID (ID SEMI)+ RPAR
+    | READLN LPAR ID (ID SEMI)+ RPAR
     ;
 
 expression

@@ -57,9 +57,9 @@ public class EvalVisitor extends PascalGrammarBaseVisitor<Integer> {
 		System.out.print("printf(\"%i");
 
 		if (ctx.getChild(0).getText().startsWith("WRITELN"))
-			System.out.print("\\n\"");
+			System.out.print("\\n");
 
-		System.out.println(", " + expr + ");");
+		System.out.println("\", " + expr + ");");
 
 		return visitChildren(ctx);
 	}
@@ -73,10 +73,8 @@ public class EvalVisitor extends PascalGrammarBaseVisitor<Integer> {
 	@Override
 	public Integer visitWhile_statement(
 			@NotNull PascalGrammarParser.While_statementContext ctx) {
-		System.out.print("while (" + ctx.expression().getText() + ')');
-		System.out.println(" {");
+		System.out.print("while (" + ctx.expression().getText() + ")");
 		Integer ret = visitChildren(ctx);
-		System.out.println("};");
 		return ret;
 	}
 
