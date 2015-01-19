@@ -83,9 +83,9 @@ public class EvalVisitor extends PascalGrammarBaseVisitor<Integer> {
 		System.out.print("scanf(\"%i");
 
 		if (ctx.getChild(0).getText().startsWith("READLN"))
-			System.out.print("\\n\"");
+			System.out.print("\\n");
 
-		System.out.println(", " + ctx.ID().getText() + ");");
+		System.out.println("\", " + ctx.ID().getText() + ");");
 
 		return visitChildren(ctx);
 	}
